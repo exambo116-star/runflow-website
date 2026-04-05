@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --background: #faf8f4;
+  --card: #ffffff;
+  --text: #2a2a2a;
+  --accent: #d4af37;
+  --line: #ece7dd;
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--text);
+  text-rendering: optimizeLegibility;
+}
+
+@keyframes starPulse {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+}
+
+::selection {
+  background: rgba(212, 175, 55, 0.2);
+}
+
+@layer base {
+  a,
+  button {
+    @apply outline-none;
+  }
+}
+
+@layer components {
+  .section-shell {
+    @apply mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12;
+  }
+
+  .section-label {
+    @apply inline-flex items-center rounded-full border border-line bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-[#6B655C];
+  }
+
+  .surface-card {
+    @apply rounded-[28px] border border-line bg-white shadow-card transition-all duration-300 ease-premium;
+  }
+
+  .primary-button {
+    @apply inline-flex items-center justify-center rounded-full bg-gold px-6 py-3 text-sm font-semibold text-ink shadow-[0_12px_30px_rgba(212,175,55,0.22)] transition-all duration-300 ease-premium hover:-translate-y-0.5 hover:shadow-[0_16px_32px_rgba(212,175,55,0.28)];
+  }
+
+  .secondary-button {
+    @apply inline-flex items-center justify-center rounded-full border border-line bg-white px-6 py-3 text-sm font-semibold text-ink transition-all duration-300 ease-premium hover:-translate-y-0.5 hover:border-[#DDD3BE] hover:shadow-card;
+  }
+
+  .nav-link {
+    @apply text-sm font-medium text-[#5E594F] transition-colors duration-300 ease-premium hover:text-ink;
+  }
+
+  .hero-top-backdrop {
+    background:
+      radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.9) 1px, transparent 2px),
+      radial-gradient(circle at 22% 36%, rgba(255, 255, 255, 0.72) 1.5px, transparent 2.5px),
+      radial-gradient(circle at 31% 12%, rgba(255, 255, 255, 0.85) 1px, transparent 2px),
+      radial-gradient(circle at 43% 22%, rgba(255, 255, 255, 0.65) 1px, transparent 2px),
+      radial-gradient(circle at 57% 10%, rgba(255, 255, 255, 0.85) 1.5px, transparent 2.5px),
+      radial-gradient(circle at 68% 28%, rgba(255, 255, 255, 0.78) 1px, transparent 2px),
+      radial-gradient(circle at 81% 18%, rgba(255, 255, 255, 0.82) 1px, transparent 2px),
+      radial-gradient(circle at 88% 34%, rgba(255, 255, 255, 0.7) 1.5px, transparent 2.5px),
+      radial-gradient(circle at top left, rgba(243, 229, 179, 0.12), transparent 34%),
+      radial-gradient(circle at bottom right, rgba(212, 175, 55, 0.12), transparent 26%),
+      #101216;
+  }
+
+  .starfield {
+    @apply absolute inset-0 overflow-hidden;
+  }
+
+  .star {
+    @apply absolute rounded-full bg-white/90;
+    box-shadow: 0 0 14px rgba(255, 255, 255, 0.55);
+    animation-name: starPulse;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+  }
+}
