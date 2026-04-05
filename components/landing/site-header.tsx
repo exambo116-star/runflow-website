@@ -1,8 +1,8 @@
 "use client";
 
+import { RunflowLogo } from "@/components/landing/runflow-logo";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { RunflowLogo } from "@/components/landing/runflow-logo";
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
@@ -34,15 +34,6 @@ export function SiteHeader() {
               </Link>
 
               <div className="flex items-center gap-2 sm:gap-3 md:hidden">
-                <Link
-                  href="/login"
-                  className={[
-                    "rounded-full px-4 py-2 text-sm font-semibold transition-colors duration-300 ease-premium",
-                    scrolled ? "text-[#5E594F] hover:text-ink" : "text-white hover:text-white",
-                  ].join(" ")}
-                >
-                  Login
-                </Link>
                 <a href="#pricing" className="primary-button px-4 py-2.5 sm:px-5">
                   Get Started
                 </a>
@@ -76,15 +67,6 @@ export function SiteHeader() {
             </nav>
 
             <div className="hidden items-center gap-2 sm:gap-3 md:flex">
-              <Link
-                href="/login"
-                className={[
-                  "rounded-full px-4 py-2 text-sm font-semibold transition-colors duration-300 ease-premium",
-                  scrolled ? "text-[#5E594F] hover:text-ink" : "text-white hover:text-white",
-                ].join(" ")}
-              >
-                Login
-              </Link>
               <a href="#pricing" className="primary-button px-4 py-2.5 sm:px-5">
                 Get Started
               </a>
